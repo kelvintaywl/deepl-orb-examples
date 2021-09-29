@@ -13,9 +13,9 @@ jobs:
       - deepl/translate:
           input-file-path: docs/zen_of_python.txt
           output-file-path: docs/zen_of_python_JA.txt
-          source_lang: EN  # English
-          target_lang: JA  # Japanese
-      - store-artifacts:
+          source-lang: EN  # English
+          target-lang: JA  # Japanese
+      - store_artifacts:
           path: docs/zen_of_python_JA.txt
 
 workflows:
