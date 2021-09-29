@@ -1,0 +1,24 @@
+version: 2.1
+
+orbs:
+  deepl: kelvintaywl/deepl@0.1.0
+
+jobs:
+  translate_my_zen:
+    docker:
+      - image: cimg/base:stable
+    steps:
+      - checkout
+      # NOTE: I added my DEEPL_API_KEY as a project environment variable.
+      - deepl/translate:
+          input-file-path: docs/zen_of_python.txt
+          output-file-path: docs/zen_of_python_JA.txt
+          source_lang: EN  # English
+          target_lang: JA  # Japanese
+      - store-artifacts:
+          path: docs/zen_of_python_JA.txt
+
+workflows:
+  save_as_artifacts:
+    jobs:
+      - translate_my_zen
