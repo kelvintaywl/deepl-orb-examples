@@ -48,7 +48,7 @@ jobs:
           
           doc_id=$(echo "${resp}" | jq -r ".document_id")
           doc_key=$(echo "${resp}" | jq -r ".document_key")
-          
+
           done=0
           tries=5
           while [ "${done}" -eq 0 ] && [ $tries -gt 0 ]
@@ -94,7 +94,6 @@ jobs:
           echo "${bin_data}" > "${OUTPUT_FILE_PATH}"
 
         environment:
-          DEEPL_API_KEY: DEEPL_API_KEY
           FORMALITY: default
           INPUT_FILE_PATH: docs/zen_of_python.txt
           OUTPUT_FILE_PATH: docs/zen_of_python_JA.txt
